@@ -1,0 +1,39 @@
+public static DoublyLinkedList deleteNodeWithX(DoublyLinkedList linkedList, int x){
+
+        Node head = linkedList.head;
+
+        Node curr = head;
+
+        while(curr != null) {
+
+            // if head == x
+            if(head.val == x) {
+                head = head.next;
+                head.prev = null;
+                curr = head;
+            }
+            else if(curr.val == x)
+            {
+                // last node
+                if(curr.next == null) {
+                    curr.prev.next = null;
+                    curr = null;
+                    continue;
+                }
+                
+                curr.prev.next = curr.next;
+                curr.next.prev = curr.prev;
+                curr = curr.next;
+            }
+            else 
+            {
+                curr = curr.next;    
+            }
+        }
+
+        linkedList.head = head;
+
+        return linkedList;
+        
+        
+    }

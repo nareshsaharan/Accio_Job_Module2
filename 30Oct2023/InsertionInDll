@@ -1,0 +1,11 @@
+static Node insertAtHead(Node head,int K) {
+        // Write your code here.
+        Node nn = new Node(K);
+
+        nn.next = head;
+        head.prev = nn;
+        head = nn;
+
+        return head;
+        
+    }
